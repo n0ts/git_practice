@@ -32,7 +32,7 @@ jobs:
         run: |
           echo $GITHUB_WORKFLOW_URL
         env:
-          GITHUB_WORKFLOW_URL: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          GITHUB_WORKFLOW_URL: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Send custom JSON data to Slack workflow
         id: slack
