@@ -98,9 +98,9 @@ jobs:
           channel-id: 'CHKHZ82PR'
           payload: |
             {
+              "icon_emoji": ":rocket:",
+              "username": "slackbot",
               "attachments": [
-                "icon_emoji": ":rocket:",
-                "username": "slackbot",
                 "text": "test"
               ]
             }
