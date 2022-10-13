@@ -100,9 +100,13 @@ jobs:
             {
               "icon_emoji": ":rocket:",
               "username": "slack-bot-token-2",
-              "attachments": [
+              "blocks": [
                 {
-                  "text": "slack-bot-token-2"
+                  "type": "section",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "slack-bot-token-2 test"
+                  }
                 }
               ]
             }
