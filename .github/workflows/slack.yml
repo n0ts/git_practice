@@ -13,13 +13,15 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v3
 
-      - id: github
+      - name: Show $GTIHUB environment
+        id: github
         run: |
           echo $GITHUB | jq -r .
         env:
           GITHUB: ${{ toJSON(github) }}
 
-      - id: github-event
+      - name: Show github.event
+        id: github-event
         run: |
           echo $GITHUB_EVENT | jq -r .
         env:
