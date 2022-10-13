@@ -98,10 +98,10 @@ jobs:
           channel-id: 'CHKHZ82PR'
           payload: |
             {
-              "icon_emoji": ":rocket:",
-              "username": "slackbot",
               "attachments": [
-                "text": "test"
+                {
+                  "text": "test"
+                }
               ]
             }
         env:
