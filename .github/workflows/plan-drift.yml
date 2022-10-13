@@ -37,7 +37,7 @@ jobs:
             }
         env:
           # FIXME
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          ###SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
 
       # - name: Slack Notification Drift
       #   uses: lazy-actions/slatify@master
