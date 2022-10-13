@@ -23,6 +23,7 @@ jobs:
         uses: slackapi/slack-github-action@v1.22.0
         #if: steps.plan.outputs.exitcode == 0
         with:
+          channel-id: 'CHANNEL_ID,ANOTHER_CHANNEL_ID'
           payload: |
             {
               "blocks": [
@@ -36,8 +37,7 @@ jobs:
               ]
             }
         env:
-          # FIXME
-          ###SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
       # - name: Slack Notification Drift
       #   uses: lazy-actions/slatify@master
