@@ -42,7 +42,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Branch:*\n${{ env.GITHUB_REF_NAME }}"
+                      "text": "*Branch:*\n${{ github.ref_name }}""
                     }
                   ]
                 },
