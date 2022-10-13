@@ -20,7 +20,7 @@ jobs:
 
       - name: Post to a Slack channel
         id: slack
-        uses: slackapi/slack-github-action@v1.22.0
+        uses: slackapi/slack-github-action@v1.23.0
         #if: steps.plan.outputs.exitcode == 0
         with:
           channel-id: 'CHKHZ82PR'
