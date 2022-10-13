@@ -1,0 +1,59 @@
+name: 'Slack'
+on:
+  workflow_dispatch:
+  push:
+    branches:
+
+jobs:
+  slack:
+    name: 'Slack'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - id: repository
+        run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+
+      - name: Post to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.22.0
+        #if: steps.plan.outputs.exitcode == 0
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  }
+                }
+              ]
+            }
+        env:
+          # FIXME
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+
+      # - name: Slack Notification Drift
+      #   uses: lazy-actions/slatify@master
+      #   # FIXME 1
+      #   if: steps.plan.outputs.exitcode == 0
+      #   with:
+      #     type: failure
+      #     icon_emoji: pika
+      #     username: isysitm-infra-drift
+      #     job_name: "*Terraform Plan*"
+      #     # FIXME
+      #     url: https://hooks.slack.com/services/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
+#          url: ${{ secrets.SLACK_WEBHOOK }}
+
+      - run: |
+        if: steps.plan.outputs.exitcode == 1
+          echo "${{ steps.plan.outputs.exitcode }}"
+
+
