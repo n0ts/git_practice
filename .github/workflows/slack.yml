@@ -27,20 +27,20 @@ jobs:
         env:
           GITHUB_EVENT: ${{ toJSON(github.event) }}
 
-      - name: Show Workflow URL
-        id: github-workflow-url
-        run: |
-          echo $GITHUB_WORKFLOW_URL
-        env:
-          GITHUB_WORKFLOW_URL: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs/"
+      - run: |
+        if: steps.plan.outputs.exitcode == 1
+          echo "${{ steps.plan.outputs.exitcode }}"
 
+      # https://api.slack.com/methods/chat.postMessage
       - name: Send custom JSON data to Slack workflow
-        id: slack-payload-webhook-url
+        id: slack-webhook-payload-block
         uses: slackapi/slack-github-action@v1.23.0
         with:
           # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
+              "icon_emoji": ":beer:",
+              "username": "slack-webhook-payload-block",
               "blocks": [
                 {
                   "type": "header",
@@ -112,22 +112,3 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-
-      # - name: Slack Notification Drift
-      #   uses: lazy-actions/slatify@master
-      #   # FIXME 1
-      #   if: steps.plan.outputs.exitcode == 0
-      #   with:
-      #     type: failure
-      #     icon_emoji: pika
-      #     username: isysitm-infra-drift
-      #     job_name: "*Terraform Plan*"
-      #     # FIXME
-      #     url: https://hooks.slack.com/services/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
-#          url: ${{ secrets.SLACK_WEBHOOK }}
-
-      - run: |
-        if: steps.plan.outputs.exitcode == 1
-          echo "${{ steps.plan.outputs.exitcode }}"
-
-
