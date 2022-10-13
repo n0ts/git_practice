@@ -27,6 +27,13 @@ jobs:
         env:
           GITHUB_EVENT: ${{ toJSON(github.event) }}
 
+      - name: Show Workflow URL
+        id: github-workflow-url
+        run: |
+          echo $GITHUB_WORKFLOW_URL
+        env:
+          GITHUB_WORKFLOW_URL: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
