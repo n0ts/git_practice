@@ -18,8 +18,7 @@ jobs:
       - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
-          echo $GITHUB_REPOSITORY
-          echo $EVENT_CONTEXT
+          echo $EVENT_CONTEXT | jq -r
 
       - id: repository
         run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
@@ -44,7 +43,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Repository:*\n ${{ github.event.repository.name }} ${{ env.REPOSITORY_NAME }}"
+                      "text": "*Repository:*\n ${{ github.event.repository.name }} $GITHUB_REPOSITORY"
                     },
                     {
                       "type": "mrkdwn",
