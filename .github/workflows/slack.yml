@@ -8,20 +8,20 @@ jobs:
   slack:
     name: 'Slack'
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
+
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
 
-      - env:
-          EVENT_CONTEXT: ${{ toJSON(github.event) }}
-        run: |
-          echo $EVENT_CONTEXT | jq -r
+      - run: |
+        echo $GITUB | jq -r .
+        env:
+          GITHUB: ${{ toJSON(github) }}
 
-      - id: repository
-        run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+      - run: |
+          echo $GITHUB_EVENT | jq -r .
+        env:
+          GITHUB_EVENT: ${{ toJSON(github.event) }}
 
       - name: Send custom JSON data to Slack workflow
         id: slack
@@ -35,7 +35,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "header"
+                    "text": "[bot] Title"
                   }
                 },
                 {
