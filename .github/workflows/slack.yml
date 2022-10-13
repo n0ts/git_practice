@@ -43,7 +43,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Repository:*\n ${{ github.event.repository.name }} ${GITHUB_REPOSITORY}"
+                      "text": "*Repository:*\n ${{ github.event.repository.name }} ${{ env.REPOSITORY }}"
                     },
                     {
                       "type": "mrkdwn",
@@ -63,6 +63,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          REPOSITORY: ${GITHUB_REPOSITORY}
 
       # - name: Slack Notification Drift
       #   uses: lazy-actions/slatify@master
