@@ -20,6 +20,9 @@ jobs:
         run: |
           echo $EVENT_CONTEXT | jq -r
 
+      - id: repository
+        run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
@@ -40,7 +43,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Repository:*\n ${{ github.event.repository.name }}""
+                      "text": "*Repository:*\n ${{ github.event.repository.name }}"
                     },
                     {
                       "type": "mrkdwn",
