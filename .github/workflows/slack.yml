@@ -30,7 +30,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": ":pika: drift-detector - 差分あり or なし"
+                    "text": "header"
                   }
                 },
                 {
