@@ -76,7 +76,7 @@ jobs:
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
       - name: Post to a Slack channel 1
-        id: slack-bot-token
+        id: slack-bot-token-1
         uses: slackapi/slack-github-action@v1.23.0
         with:
           # Slack channel id, channel name, or user id to post message.
@@ -89,7 +89,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
       - name: Post to a Slack channel 2
-        id: slack-bot-token
+        id: slack-bot-token-2
         uses: slackapi/slack-github-action@v1.23.0
         with:
           # Slack channel id, channel name, or user id to post message.
