@@ -4,4 +4,4 @@ set +e
 
 echo "TEST3"
 
-exit 2
+##exit 2
