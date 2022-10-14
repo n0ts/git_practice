@@ -29,6 +29,7 @@ jobs:
         id: test3
         continue-on-error: true
         run: |
+          set +e
           ./test3.sh
           exitcode=$?
           echo "::set-output name=exitcode::$exitcode"
