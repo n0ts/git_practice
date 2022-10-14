@@ -20,13 +20,6 @@ jobs:
         env:
           GITHUB: ${{ toJSON(github) }}
 
-      - name: Show github.event
-        id: github-event
-        run: |
-          echo $GITHUB_EVENT | jq -r .
-        env:
-          GITHUB_EVENT: ${{ toJSON(github.event) }}
-
       - run: |
         if: steps.plan.outputs.exitcode == 1
           echo "${{ steps.plan.outputs.exitcode }}"
