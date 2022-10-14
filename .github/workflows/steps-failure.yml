@@ -31,6 +31,7 @@ jobs:
           ./test3.sh
           exitcode=$?
           echo "::set-output name=exitcode::$exitcode"
+          exit 0
 
       - name: Show outputs
         run: |
