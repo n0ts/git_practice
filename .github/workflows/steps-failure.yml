@@ -31,7 +31,7 @@ jobs:
           ./test3.sh
           exitcode=$?
           echo $exitcode
-          echo "::set-output name=exitcode::hoge"
+          echo echo "::set-output name=exitcode::world"
 
       - id: step1
         run: echo "::set-output name=test::hello"
