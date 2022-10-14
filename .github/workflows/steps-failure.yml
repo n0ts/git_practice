@@ -37,15 +37,20 @@ jobs:
           exitcode=$?
           echo "TEST3_EXITCODE=$exitcode" >> $GITHUB_ENV
 
+      - name: Test3 check exit code is 0
+        run: |
+          echo "TEST3 exitcode is 0"
+        if: env.TEST3_EXITCODE == 0
+
       - name: Test3 check exit code is 1
-        if: steps.test3.outputs.exitcode == 1
         run: |
           echo "TEST3 exitcode is 1"
+        if: env.TEST3_EXITCODE == 1
 
       - name: Test3 check exit code is 2
-        if: steps.test3.outputs.exitcode == 2
         run: |
           echo "TEST3 exitcode is 2"
+        if: env.TEST3_EXITCODE == 2
 
       - name: Set env
         run: |
