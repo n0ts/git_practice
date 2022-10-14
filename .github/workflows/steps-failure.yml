@@ -46,6 +46,14 @@ jobs:
         run: |
           echo "TEST3 exitcode is 2"
 
+      - name: Set env
+        run: |
+          echo "TEST3_MESSAGE=\"exit code is ${{ steps.test3.outputs.exitcode }}\"" >> $GITHUB_ENV
+
+      - name: Show env
+        run: |
+          echo "${{ env.TEST3_MESSAGE }}"
+
       - name: Steps context
         run: |
           echo "$STEPS_CONTEXT"
