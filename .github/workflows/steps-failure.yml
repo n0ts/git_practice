@@ -12,19 +12,19 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v3
 
-      - name: test1
+      - name: Test1
         id: test1
         continue-on-error: true
         run: |
           ./test1.sh
 
-      - name: test2
+      - name: Test2
         id: test2
         continue-on-error: true
         run: |
           ./test2.sh
 
-      - name: test3
+      - name: Test3
         id: test3
         continue-on-error: true
         run: |
@@ -32,7 +32,12 @@ jobs:
           exitcode=$?
           echo "::set-output name=exitcode::$exitcode"
 
+      - name: ahoge
+        run: |
+          echo "${{ steps.test3.outputs.exitcode }}""
+
       - name: Dump steps context
-        run: echo "$STEPS_CONTEXT"
+        run: |
+          echo "$STEPS_CONTEXT"
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
