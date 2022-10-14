@@ -29,6 +29,8 @@ jobs:
         continue-on-error: true
         run: |
           exit 2
+          exitcode=$?
+          echo "::set-output name=exitcode::$exitcode"
 
       - name: Dump steps context
         run: echo "$STEPS_CONTEXT"
