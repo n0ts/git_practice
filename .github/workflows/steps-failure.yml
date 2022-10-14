@@ -16,21 +16,19 @@ jobs:
         id: test1
         continue-on-error: true
         run: |
-          exit 0
+          ./test1.sh
 
       - name: test2
         id: test2
         continue-on-error: true
         run: |
-          exit 1
+          ./test2.sh
 
       - name: test3
         id: test3
         continue-on-error: true
         run: |
-          exit 2
-          exitcode=$?
-          echo "::set-output name=exitcode::$exitcode"
+          ./test3.sh
 
       - name: Dump steps context
         run: echo "$STEPS_CONTEXT"
