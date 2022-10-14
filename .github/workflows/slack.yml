@@ -39,8 +39,6 @@ jobs:
           # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
-              "icon_emoji": ":beer:",
-              "username": "slack-webhook-payload-block",
               "blocks": [
                 {
                   "type": "header",
@@ -54,7 +52,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Repository:*\n ${{ github.event.repository.name }}"
+                      "text": "*Repository:*\n${{ github.event.repository.name }}"
                     },
                     {
                       "type": "mrkdwn",
