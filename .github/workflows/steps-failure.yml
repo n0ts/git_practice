@@ -31,15 +31,7 @@ jobs:
         run: |
           ./test3.sh
           exitcode=$?
-          echo $exitcode
           echo "::set-output name=exitcode::$exitcode"
-
-      - id: step1
-        run: |
-          echo "::set-output name=test::hello"
-      - id: step2
-        run: |
-          echo "::set-output name=test::world"
 
       - name: Dump steps context
         run: |
