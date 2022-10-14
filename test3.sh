@@ -2,4 +2,4 @@
 
 echo "TEST3"
 
-exit 2
+##exit 2
