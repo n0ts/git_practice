@@ -32,7 +32,7 @@ jobs:
           ./test3.sh
           exitcode=$?
           echo $exitcode
-          echo "::set-output name=exitcode::world"
+          echo "::set-output name=exitcode::$exitcode"
 
       - id: step1
         run: |
