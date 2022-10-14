@@ -1,4 +1,4 @@
-name: 'Slack'
+name: 'Slack-Lazy'
 on:
   workflow_dispatch:
 
