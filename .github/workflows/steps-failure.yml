@@ -36,6 +36,11 @@ jobs:
           exitcode=$?
           echo "::set-output name=exitcode::$exitcode"
 
+      - name: Test3 check
+        if: steps.test3.outputs.exitcode == 2
+        run: |
+          echo "TEST3 exitcode is 2"
+
       - name: Steps context
         run: |
           echo "$STEPS_CONTEXT"
