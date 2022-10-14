@@ -18,7 +18,7 @@ jobs:
         run: |
           set +e
           ./test1.sh
-          echo echo "::set-output name=exitcode::world"
+          echo "TEST1_EXITCODE=$? >> $GITHUB_ENV"
 
       - name: Test2
         id: test2
@@ -26,6 +26,7 @@ jobs:
         run: |
           set +e
           ./test2.sh
+          echo "TEST2_EXITCODE=$? >> $GITHUB_ENV"
 
       - name: Test3
         id: test3
@@ -33,8 +34,7 @@ jobs:
         run: |
           set +e
           ./test3.sh
-          exitcode=$?
-          echo "::set-output name=exitcode::$exitcode"
+          echo "TEST3_EXITCODE=$? >> $GITHUB_ENV"
 
       - name: Test3 check exit code is 1
         if: steps.test3.outputs.exitcode == 1
