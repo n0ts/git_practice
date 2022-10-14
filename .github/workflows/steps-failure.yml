@@ -30,14 +30,11 @@ jobs:
         continue-on-error: true
         run: |
           ./test3.sh
+          echo "TEST3"
           exitcode=$?
           echo $exitcode
           echo echo "::set-output name=exitcode::world"
 
-      - id: step1
-        run: echo "::set-output name=test::hello"
-      - id: step2
-        run: echo "::set-output name=test::world"
 
       - name: Show outputs
         run: |
