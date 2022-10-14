@@ -16,13 +16,19 @@ jobs:
         id: test1
         continue-on-error: true
         run: |
-          ls -l hoge
+          exit 0
 
       - name: test2
         id: test2
         continue-on-error: true
         run: |
-          ls -l
+          exit 1
+
+      - name: test3
+        id: test3
+        continue-on-error: true
+        run: |
+          exit 2
 
       - name: Dump steps context
         run: echo "$STEPS_CONTEXT"
