@@ -1,9 +1,9 @@
 name: 'Slack-Lazy'
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - actions-slack
+  # push:
+  #   branches:
+  #     - actions-slack
 
 jobs:
   slack-lazy:
