@@ -54,6 +54,7 @@ jobs:
 
       - name: Show env
         run: |
+          cat $GITHUB_ENV
           echo "${{ env.TEST3_MESSAGE }}"
 
       - name: Steps context
