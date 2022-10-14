@@ -17,6 +17,7 @@ jobs:
         continue-on-error: true
         run: |
           ./test1.sh
+          echo echo "::set-output name=exitcode::world"
 
       - name: Test2
         id: test2
