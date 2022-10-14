@@ -16,6 +16,7 @@ jobs:
         id: test1
         continue-on-error: true
         run: |
+          set +e
           ./test1.sh
           echo echo "::set-output name=exitcode::world"
 
@@ -23,17 +24,19 @@ jobs:
         id: test2
         continue-on-error: true
         run: |
+          set +e
           ./test2.sh
 
       - name: Test3
         id: test3
         continue-on-error: true
         run: |
+          set +e
           ./test3.sh
           exitcode=$?
           echo "::set-output name=exitcode::$exitcode"
 
-      - name: Dump steps context
+      - name: Steps context
         run: |
           echo "$STEPS_CONTEXT"
         env:
