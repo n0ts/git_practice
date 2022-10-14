@@ -18,11 +18,15 @@ jobs:
         env:
           GITHUB: ${{ toJSON(github) }}
 
+      - name: Test
+        id: test
+        run: |
+          echo "TEST"
+
       - name: Slack Notification Drift
         uses: lazy-actions/slatify@master
         with:
-          type: failure
-          icon_emoji: pika
+          type: ${{ job.status }}
           username: isysitm-infra-drift
-          job_name: "*Terraform Plan*"
+          job_name: '*Test*'
           url: ${{ secrets.SLACK_WEBHOOK_URL }}
