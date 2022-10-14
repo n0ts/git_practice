@@ -18,7 +18,7 @@ jobs:
         run: |
           set +e
           ./test1.sh
-          echo "TEST1_EXITCODE=$? >> $GITHUB_ENV"
+          echo "TEST1_EXITCODE=$?"" >> $GITHUB_ENV
 
       - name: Test2
         id: test2
@@ -26,7 +26,7 @@ jobs:
         run: |
           set +e
           ./test2.sh
-          echo "TEST2_EXITCODE=$? >> $GITHUB_ENV"
+          echo "TEST2_EXITCODE=$?"" >> $GITHUB_ENV
 
       - name: Test3
         id: test3
@@ -35,8 +35,7 @@ jobs:
           set +e
           ./test3.sh
           exitcode=$?
-          echo "TEST3_EXITCODE=$exitcode >> $GITHUB_ENV"
-          ###    run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+          echo "TEST3_EXITCODE=$exitcode" >> $GITHUB_ENV
 
       - name: Test3 check exit code is 1
         if: steps.test3.outputs.exitcode == 1
@@ -54,7 +53,6 @@ jobs:
 
       - name: Show env
         run: |
-          cat $GITHUB_ENV
           echo "${{ env.TEST3_MESSAGE }}"
 
       - name: Steps context
