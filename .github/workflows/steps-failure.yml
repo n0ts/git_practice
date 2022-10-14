@@ -32,9 +32,9 @@ jobs:
           exitcode=$?
           echo "::set-output name=exitcode::$exitcode"
 
-      - name: ahoge
+      - name: Show outputs
         run: |
-          echo "${{ steps.test3.outputs.exitcode }}""
+          echo "${{ steps.test3.outputs.exitcode }}"
 
       - name: Dump steps context
         run: |
