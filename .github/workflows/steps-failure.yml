@@ -29,11 +29,11 @@ jobs:
         id: test3
         continue-on-error: true
         run: |
+          echo echo "::set-output name=exitcode::world"
           ./test3.sh
           echo "TEST3"
           exitcode=$?
           echo $exitcode
-          echo echo "::set-output name=exitcode::world"
 
 
       - name: Show outputs
