@@ -29,9 +29,6 @@ jobs:
         id: test3
         continue-on-error: true
         run: |
-          ./test3.sh
-          exitcode=$?
-          echo $exitcode
           echo echo "::set-output name=exitcode::world"
 
       - id: step1
