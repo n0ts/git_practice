@@ -32,7 +32,11 @@ jobs:
           exitcode=$?
           echo $exitcode
           echo "::set-output name=exitcode::$exitcode"
-          exit 0
+
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
 
       - name: Show outputs
         run: |
