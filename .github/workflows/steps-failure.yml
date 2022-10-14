@@ -34,7 +34,8 @@ jobs:
         run: |
           set +e
           ./test3.sh
-          echo "TEST3_EXITCODE=$? >> $GITHUB_ENV"
+          exitcode=$?
+          echo "TEST3_EXITCODE=$exitcode >> $GITHUB_ENV"
 
       - name: Test3 check exit code is 1
         if: steps.test3.outputs.exitcode == 1
