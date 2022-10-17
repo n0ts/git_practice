@@ -29,15 +29,15 @@ jobs:
 
       - name: Test1 check success
         run: echo "TEST1 is success"
-        if: steps.test1.outcome == "success"
+        if: steps.test1.outcome == 'success'
 
       - name: Test2 check failure
         run: echo "TEST2 is failure"
-        if: steps.test2.outcome == "failure"
+        if: steps.test2.outcome == 'failure'
 
       - name: Test3 check failure
         run: echo "TEST3 is failure"
-        if: steps.test3.outcome == "failure"
+        if: steps.test3.outcome == 'failure'
 
       - name: Steps context
         run: |
