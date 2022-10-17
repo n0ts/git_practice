@@ -30,7 +30,7 @@ jobs:
       - name: Test1 check exit code is 0
         run: |
           echo "TEST1 exitcode is 0"
-        if: step.test1.outputs.exitcode == 0
+#        if: step.test1.outputs.exitcode == 0
 
       - name: Test2 check exit code is 1
         run: |
