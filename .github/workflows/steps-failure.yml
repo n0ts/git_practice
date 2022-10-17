@@ -27,20 +27,17 @@ jobs:
         continue-on-error: true
         run: exit 2
 
-      - name: Test1 check exit code is 0
-        run: |
-          echo "TEST1 exitcode is 0"
-        if: steps.test1.outputs.exitcode == 0
+      - name: Test1 check success
+        run: echo "TEST1 is success"
+        if: steps.test1.outcome == "success"
 
-      - name: Test2 check exit code is 1
-        run: |
-          echo "TEST2 exitcode is 1"
-        if: steps.test2.outputs.exitcode == 1
+      - name: Test2 check failure
+        run: echo "TEST2 is failure"
+        if: steps.test2.outcome == "failure"
 
-      - name: Test3 check exit code is 2
-        run: |
-          echo "TEST3 exitcode is 2"
-        if: steps.test3.outputs.exitcode == 2
+      - name: Test3 check failure
+        run: echo "TEST3 is failure"
+        if: steps.test3.outcome == "failure"
 
       - name: Steps context
         run: |
