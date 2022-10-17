@@ -15,49 +15,32 @@ jobs:
       - name: Test1
         id: test1
         continue-on-error: true
-        run: |
-          set +e
-          ./test1.sh
-          echo "TEST1_EXITCODE=$?" >> $GITHUB_ENV
+        run: exit 0
 
       - name: Test2
         id: test2
         continue-on-error: true
-        run: |
-          set +e
-          ./test2.sh
-          echo "TEST2_EXITCODE=$?" >> $GITHUB_ENV
+        run: exit 1
 
       - name: Test3
         id: test3
         continue-on-error: true
-        run: |
-          set +e
-          ./test3.sh
-          echo "TEST3_EXITCODE=$?" >> $GITHUB_ENV
+        run: exit 2
 
-      - name: Test3 check exit code is 0
+      - name: Test1 check exit code is 0
         run: |
-          echo "TEST3 exitcode is 0"
-        if: env.TEST3_EXITCODE == 0
+          echo "TEST1 exitcode is 0"
+        if: step.test1.outputs.exitcode == 0
 
-      - name: Test3 check exit code is 1
+      - name: Test2 check exit code is 1
         run: |
-          echo "TEST3 exitcode is 1"
-        if: env.TEST3_EXITCODE == 1
+          echo "TEST2 exitcode is 1"
+        if: step.test2.outputs.exitcode == 1
 
       - name: Test3 check exit code is 2
         run: |
           echo "TEST3 exitcode is 2"
-        if: env.TEST3_EXITCODE == 2
-
-      - name: Set env
-        run: |
-          echo "TEST3_MESSAGE=\"exit code is ${{ env.TEST3_EXITCODE }}\"" >> $GITHUB_ENV
-
-      - name: Show env
-        run: |
-          echo "${{ env.TEST3_MESSAGE }}"
+        if: step.test3.outputs.exitcode == 2
 
       - name: Steps context
         run: |
