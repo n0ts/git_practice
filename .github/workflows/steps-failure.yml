@@ -39,6 +39,15 @@ jobs:
         run: echo "TEST3 is failure"
         if: steps.test3.outcome == 'failure'
 
+      - name: Test3 check exit 2
+        uses: maddog2050/executable-wrapper@v1
+        with:
+          run_command: exit 2
+
+      - name: Test3 check exit code
+        run: echo "TEST3 is exit code is 2"
+        if: steps.test3.outputs.exitcode == '3'
+
       - name: Steps context
         run: |
           echo "$STEPS_CONTEXT"
