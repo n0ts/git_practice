@@ -18,7 +18,7 @@ jobs:
         run: |
           set +e
           ./test1.sh
-          echo "TEST1_EXITCODE=$?"" >> $GITHUB_ENV
+          echo "TEST1_EXITCODE=$?" >> $GITHUB_ENV
 
       - name: Test2
         id: test2
@@ -26,7 +26,7 @@ jobs:
         run: |
           set +e
           ./test2.sh
-          echo "TEST2_EXITCODE=$?"" >> $GITHUB_ENV
+          echo "TEST2_EXITCODE=$?" >> $GITHUB_ENV
 
       - name: Test3
         id: test3
