@@ -9,7 +9,7 @@ on:
       - trigger
 
 jobs:
-  slack:
+  trigger:
     name: 'Trigger'
     runs-on: ubuntu-latest
 
