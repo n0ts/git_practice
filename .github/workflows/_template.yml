@@ -1,0 +1,19 @@
+name: GitHub Actions temoplate file
+
+on:
+  push:
+    branches:
+      - _main
+  pull_request:
+    branches:
+      - _main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Hello, World
+        run: echo Hello, World
