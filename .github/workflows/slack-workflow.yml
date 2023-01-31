@@ -1,13 +1,13 @@
-name: GitHub Actions temoplate file
+name: GitHub Actions Slack
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - _main
+      - workflow-slack
   pull_request:
     branches:
-      - _main
+      - workflow-slack
 
 jobs:
   build:
