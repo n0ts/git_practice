@@ -1,3 +1,4 @@
+# /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" event:"push" branch:"workflow-slack" actor:"n0ts"}
 name: GitHub Actions Slack
 
 on:
