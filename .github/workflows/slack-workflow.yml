@@ -1,5 +1,5 @@
 # /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" event:"push" branch:"workflow-slack" actor:"n0ts"}
-# /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" branch:"workflow-slack" actor:"test"}
+# /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" event: "pull_request" branch:"workflow-slack" actor:"test"}
 name: GitHub Actions Slack
 
 on:
@@ -18,5 +18,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run Hello, World, Slack
-        run: echo Hello, World, Slack
+      - name: Run Hello, World, Slack2
+        run: echo Hello, World, Slack2
