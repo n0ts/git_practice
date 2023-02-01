@@ -1,5 +1,6 @@
-# /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" event:"push" branch:"workflow-slack" actor:"n0ts"}
-# /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" event: "pull_request" branch:"workflow-slack" actor:"test"}
+# OK /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" event:"push" branch:"workflow-slack" actor:"n0ts"}
+# NG /github subscribe n0ts/git_practice workflows:{name:"GitHub Actions Slack" event: "pull_request" branch:"workflow-slack" actor:"test"}
+# /github subscribe owner/repo workflows:{name: "workflow-1,workflow2"}
 name: GitHub Actions Slack
 
 on:
